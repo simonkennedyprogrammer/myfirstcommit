@@ -1,52 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>index</title>
 </head>
 <body>
- <div id="movies"> </div>
- <hr>
- <h1>Random Joke Generator</h1>
- <p id="joke">click the button to get a random joke</p>
- <button onclick="getJoke()"> Get a joke</button>
+    
 </body>
-<script>
-  function getJoke() {
-    fetch("https://official-joke-api.appspot.com/random_joke")
-    .then(response => response.json())
-    .then(data => {
-      document.getElementById("joke").innerText = data.setup + " - " + data.punchline
-    })
-    .catch(error => {
-      document.getElementById("joke").innerText = "Oops! Something went wrong.";
-      console.error(error);
-    });
-  }
-  const movies = [
-    {
-      titles: "Spider-Man: No Way home",
-      year: 2021,
-      poster: "https://m.media-amazon.com/images/I/81y0foYjoFL._SL1500_.jpg"
-    },
-    {
-      titles: "Black Panther: Wakanda Forever",
-      year: 2022,
-      poster: "https://m.media-amazon.com/images/I/81A11A9gmkL._SL1500_.jpg"
-    }
-  ];
-
-  const container = document.getElementById("movies");
-
-  movies.forEach(movie => {
-    const card = document.createElement("div")
-    card.innerHTML = `
-    <h3>${movie.title} (${movie.year})</h3>
-    <img src="${movie.poster}" width="200">
-  `;
-    container.appendChild(card);
-  });
-
-</script>
 </html>
